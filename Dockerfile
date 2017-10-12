@@ -11,7 +11,7 @@ RUN pip install Cython==0.26 numpy==1.13.3; \
     pip install nltk==3.2.4 scikit-learn==0.18.2 gensim==2.2.0 pandas==0.20.1
 
 # Download NLTK required corpora
-#RUN export NLTK_DATA=~/nltk_data/
-#RUN wget https://github.com/nltk/nltk_data/archive/gh-pages.zip
-#RUN unzip gh-pages.zip
-#RUN mv nltk_data-gh-pages/ /home/username/nltk_data/
+RUN export NLTK_DATA=~/nltk_data/
+RUN wget https://github.com/nltk/nltk_data/archive/gh-pages.zip
+RUN unzip gh-pages.zip
+RUN mv nltk_data-gh-pages/ /home/username/nltk_data/
