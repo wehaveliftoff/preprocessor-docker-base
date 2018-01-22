@@ -6,9 +6,9 @@ RUN apk add --no-cache curl gcc g++ libffi libffi-dev openssl openssl-dev gfortr
 RUN apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community lapack-dev
 RUN ln -s /usr/include/locale.h /usr/include/xlocale.h
 
-RUN pip install Cython==0.26 numpy==1.13.3; \
+RUN pip install Cython==0.27.3 numpy==1.14.0; \
     pip install scipy==1.0.0; \
-    pip install nltk==3.2.4 scikit-learn==0.18.2 gensim==2.2.0 pandas==0.20.1
+    pip install nltk==3.2.5 scikit-learn==0.19.1 gensim==3.2.0 pandas==0.20.1
 
 # Download NLTK required corpora
 RUN python -m nltk.downloader stopwords
