@@ -9,7 +9,6 @@ jobs:
       - checkout
       - setup_remote_docker:
           reusable: true  # reuse remote Docker environment
-
       - run:
           name: Install dependencies
           command: |
