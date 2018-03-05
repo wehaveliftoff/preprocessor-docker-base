@@ -13,3 +13,6 @@ RUN pip install Cython==0.27.3 numpy==1.14.1; \
 # Download NLTK required corpora
 RUN python -m nltk.downloader stopwords
 RUN python -m nltk.downloader punkt
+
+COPY datafiles /datafiles
+COPY lift-data-loader-c3408895b0ce.json /google.json

@@ -1,0 +1,28 @@
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: docker:17.09-git
+    working_directory: ~/build
+    steps:
+      - checkout
+      - setup_remote_docker:
+          reusable: true  # reuse remote Docker environment
+
+      - run:
+          name: Install dependencies
+          command: |
+            apk -v --update add python py-pip
+            pip install --upgrade awscli
+      - run:
+          name: Build Docker image
+          command: |
+            aws s3 cp s3://lift.deployment.preprocessor . --recursive
+            cp -r /root/.ssh .
+            docker build -t wehaveliftoff/preprocessor-base .
+      - run:
+          name: Push image to registry
+          command: |
+            docker login -u $DOCKER_USER -p $DOCKER_PASS
+            docker push wehaveliftoff/preprocessor-base
