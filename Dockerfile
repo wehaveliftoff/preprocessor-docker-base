@@ -14,5 +14,5 @@ RUN pip install Cython==0.27.3 numpy==1.14.1; \
 RUN python -m nltk.downloader stopwords
 RUN python -m nltk.downloader punkt
 
-COPY datafiles /datafiles
+COPY vector_models /vector_models
 COPY lift-data-loader-c3408895b0ce.json /google.json
